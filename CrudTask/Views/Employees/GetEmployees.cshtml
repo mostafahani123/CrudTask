@@ -1,0 +1,31 @@
+﻿@model  IEnumerable<CrudTask.Models.Employee>
+
+@{
+    ViewBag.Title = "GetEmployees";
+}
+
+<h2>GetEmployees</h2>
+<div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+        <a href="@Url.Action("CreateEmp", "Employees")">Create new Employee</a>
+    </div>
+</div>
+<table class="table">
+    <tr>
+        <th>Employee ID</th>
+        <th>Employee name</th>
+        <th>Employee phone</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.id</td>
+            <td>@item.name</td>
+            <td>@item.phone</td>
+            <td>@Html.ActionLink("Edit", "EditEmp", new { id = item.id })</td>
+            <td>@Html.ActionLink("Delete", "Delete", new { id = item.id })</td>
+        </tr>
+    }
+
+</table>
+
