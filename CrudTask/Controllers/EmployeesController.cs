@@ -59,6 +59,15 @@ namespace CrudTask.Controllers
 
         }
 
+        public ActionResult Details(int id)
+        {
+            var emp = db.Employees.Where(x => x.id == id).FirstOrDefault();
+            
+            return View(emp);
+
+
+        }
+
 
     }
 }
